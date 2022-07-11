@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% block style %}
+    <style>
+        input {
+            width: 90%;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem 0rem;
+            border-radius: 0.5rem;
+            border: 1px solid black;
+        }
+
+        label {
+            display: block;
+        }
+        .center{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+        }
+        button{
+            padding: 0.5rem 1rem;
+            color: brown;
+            background-color: white;
+            border: 2px solid brown;
+            border-radius: 1rem;
+            margin: 1rem;
+            width: 40%;
+        }
+        button:hover{
+
+            color: white;
+            background-color: brown;
+            cursor: pointer;
+        }
+
+    </style>
+{% endblock %}
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="center">
+            <button type="submit">{{ button }}</button>
+        </div>
+    </form>
+{% endblock %}

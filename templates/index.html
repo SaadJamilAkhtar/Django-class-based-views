@@ -1,0 +1,71 @@
+{% extends 'main.html' %}
+{% block style %}
+    <style>
+
+        .object {
+            width: 100%;
+            display: flex;
+            border: 1px solid brown;
+            margin: 1rem;
+            align-items: center;
+            padding: 1rem;
+            transition: 0.25s ease-in-out;
+        }
+        .object:hover{
+            transform: perspective(1000px) translateZ(30px) translateX(15px);
+            box-shadow: 2px 2px 5px 2px rgba(50,50,50,0.3);
+        }
+
+        .object h3 {
+            width: 50%;
+            padding-left: 2rem;
+        }
+
+        .object p {
+            width: 25%;
+            padding-left: 2rem;
+        }
+
+        a {
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            background-color: white;
+            border: 2px solid brown;
+            border-radius: 2rem;
+            margin: 0 0.5rem;
+            color: brown;
+        }
+
+        a:hover {
+            cursor: pointer;
+            background-color: brown;
+            color: white;
+        }
+
+
+        .center {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+
+    </style>
+
+{% endblock %}
+{% block content %}
+
+    {% for object in objects %}
+        <div class="object">
+            <h3>Item : {{ object.name }}</h3>
+            <p>Quantity : {{ object.quantity }}</p>
+            <a href="{% url 'update' object.id %}">Update</a>
+            <a href="{% url 'delete' object.id %}">Delete</a>
+        </div>
+    {% endfor %}
+    <div class="center">
+        <a href="{% url 'create' %}">Add +</a>
+    </div>
+{% endblock %}

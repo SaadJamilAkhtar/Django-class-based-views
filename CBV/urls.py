@@ -19,8 +19,8 @@ from main.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', list_objects, name="list"),
-    # path('add', add_object, name="create"),
-    # path('delete/<int:pk>', delete_object, name="delete"),
-    # path('update/<int:pk>', update_object, name="update"),
+    path('', list_objects, name="list"),
+    path('add', add_object, name="create"),
+    path('delete/<int:pk>', delete_object, name="delete"),
+    path('update/<int:pk>', update_object, name="update"),
 ]
